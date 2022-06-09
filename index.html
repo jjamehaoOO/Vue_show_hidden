@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script> <!-- 引入vue的cdn -->
+    
+</head>
+<body>
+    <div id="root"></div>
+    <script>
+        Vue.createApp({//Vue.createApp代表創建一個vue實例
+            data(){
+                return{
+                    show:true //true代表show裡面的值存在
+                }
+            },
+            methods:{ //函數要呼叫作用 放在methods
+                handleBtnClick(){
+                    this.show = !this.show;
+                }
+            },
+            //v-if 控制span標籤存不存在 如果show存在 span標籤就存在
+            template:`<div>
+                <span v-if="show">Hello world</span>
+                <button v-on:click="handleBtnClick">顯示/隱藏</button>  
+                </div>`
+                //在Vue裡面要用事件 要用v-on來綁定
+        }).mount('#root');//.mount('#root') 在div名稱=root上使用Vue
+    </script>
+</body>
+</html>
